@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('cover_letter')->nullable();
             $table->timestamps();
 
-            $table->unique(['job_id', 'candidate_id']);
+            $table->unique(['job_post_id', 'candidate_id']);
         });
     }
 

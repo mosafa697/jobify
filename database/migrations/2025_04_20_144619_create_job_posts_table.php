@@ -21,6 +21,7 @@ return new class extends Migration
             $table->dateTime('published_at');
             $table->foreignId('published_by')->constrained('companies')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
