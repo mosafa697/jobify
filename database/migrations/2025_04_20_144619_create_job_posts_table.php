@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('job_posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
             $table->string('location');
-            $table->int('salary_range');
+            $table->integer('salary_range');
             $table->boolean('is_remote');
             $table->dateTime('published_at');
+            $table->foreignId('published_by')->constrained('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
