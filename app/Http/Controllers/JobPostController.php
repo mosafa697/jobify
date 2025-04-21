@@ -75,14 +75,14 @@ class JobPostController extends Controller
      */
     public function restore(int $id)
     {
-        $job = JobPost::onlyTrashed()->where('id', $id)->where('published_by', request()->user('company')->id)->first();
+        $jobPost = JobPost::onlyTrashed()->where('id', $id)->where('published_by', request()->user('company')->id)->first();
 
-        if (!$job) {
+        if (!$jobPost) {
             return response()->json(['message' => 'Job post not found or unauthorized'], 404);
         }
 
-        $job->restore();
+        $jobPost->restore();
 
-        return response()->json(['message' => 'Job post restored successfully', 'job' => $job], 200);
+        return response()->json(['message' => 'Job post restored successfully', 'job' => $jobPost], 200);
     }
 }

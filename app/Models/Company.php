@@ -10,4 +10,9 @@ class Company extends Authenticatable
     use HasApiTokens;
 
     protected $guarded = [];
+
+    public function jobPosts()
+    {
+        return $this->hasMany(JobPost::class);
+    }
 }

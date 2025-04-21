@@ -6,7 +6,6 @@ use App\Http\Requests\CreateJobApplicationRequest;
 use App\Jobs\ProcessJobApplication;
 use App\Models\JobApplication;
 use App\Models\JobPost;
-use Illuminate\Http\Request;
 
 class JobApplicationController extends Controller
 {
@@ -18,7 +17,7 @@ class JobApplicationController extends Controller
             return response()->json(['message' => 'The specified job does not exist'], 404);
         }
 
-        $alreadyApplied = JobApplication::where('candidate_id', 1) //$request->user('candidate')->id
+        $alreadyApplied = JobApplication::where('candidate_id', $request->user('candidate')->id)
             ->where('job_post_id', $id)
             ->exists();
 
@@ -30,7 +29,7 @@ class JobApplicationController extends Controller
         $resume = $request->file('resume')->store('temp-resumes');
 
         ProcessJobApplication::dispatch([
-            'candidate_id' => 1, // $request->user('candidate')->id
+            'candidate_id' => $request->user('candidate')->id,
             'job_post_id' => $id,
             'cover_letter' => $cover_letter,
             'resume_path' => $resume,

@@ -10,4 +10,9 @@ class Candidate extends Authenticatable
     use HasApiTokens;
 
     protected $guarded = [];
+
+    public function jobApplications()
+    {
+        return $this->hasMany(JobApplication::class);
+    }
 }
