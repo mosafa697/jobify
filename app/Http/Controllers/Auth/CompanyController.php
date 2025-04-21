@@ -3,26 +3,44 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginCompanyRequest;
+use App\Http\Requests\RegisterCompanyRequest;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CompanyController extends Controller
 {
-    public function login(Request $request)
+    public function register(RegisterCompanyRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+        $companyData = $request->validated();
+
+        Company::create([
+            'name' => $companyData['name'],
+            'email' => $companyData['email'],
+            'password' => Hash::make($companyData['password']),
         ]);
 
-        if (Auth::guard('company')->attempt($request->only('email', 'password'))) {
-            $company = Auth::guard('company')->user();
-            $token = $company->createToken('CompanyApp')->accessToken;
+        return response()->json(['message' => 'Company registered successfully'], 201);
+    }
 
-            return response()->json(['token' => $token]);
+    public function login(LoginCompanyRequest $request)
+    {
+        $request->validated();
+
+        $company = Company::where('email', $request->email)->first();
+
+        if (!$company || ! Hash::check($request->password, $company->password)) {
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
 
-        return response()->json(['error' => 'Invalid credentials'], 401);
+        $token = $company->createToken('CompanyToken')->accessToken;
+
+        return response()->json([
+            'company' => $company,
+            'token' => $token,
+        ]);
     }
 
     public function logout(Request $request)
