@@ -26,7 +26,7 @@ class ProcessJobApplication implements ShouldQueue
 
         JobApplication::create([
             'candidate_id' => $this->data['candidate_id'],
-            'job_id' => $this->data['job_id'],
+            'job_post_id' => $this->data['job_post_id'],
             'cover_letter' => $coverLetterPath,
             'resume' => $resumePath,
         ]);

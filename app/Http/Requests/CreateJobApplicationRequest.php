@@ -22,7 +22,7 @@ class CreateJobApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cover_letter' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'cover_letter' => 'sometimes|file|mimes:pdf,doc,docx|max:2048',
             'resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ];
     }
