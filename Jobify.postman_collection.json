@@ -1,0 +1,1223 @@
+{
+	"info": {
+		"_postman_id": "1b376710-5948-4dd8-be6c-1dfc3b2d4be7",
+		"name": "Jobify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33040482"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "JobPost",
+					"item": [
+						{
+							"name": "Store Job Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"job 1\",\r\n    \"description\": \"job descriptions\",\r\n    \"location\": \"Cairo, Egypt\",\r\n    \"salary_range\": 1000,\r\n    \"is_remote\": 0,\r\n    \"published_at\": \"2025-04-04\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/company/job-posts"
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"job 1\",\r\n    \"description\": \"job descriptions\",\r\n    \"location\": \"Cairo, Egypt\",\r\n    \"salary_range\": 1000,\r\n    \"is_remote\": 0,\r\n    \"published_at\": \"2025-04-04\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://127.0.0.1:8000/api/company/job-posts"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 05:10:41 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"title\": \"job 1\",\n    \"description\": \"job descriptions\",\n    \"location\": \"Cairo, Egypt\",\n    \"salary_range\": 1000,\n    \"is_remote\": 0,\n    \"published_at\": \"2025-04-04\",\n    \"published_by\": 1,\n    \"updated_at\": \"2025-04-21T05:10:41.000000Z\",\n    \"created_at\": \"2025-04-21T05:10:41.000000Z\",\n    \"id\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Job Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"job updated\"\r\n    // \"description\": \"job descriptions\",\r\n    // \"location\": \"Cairo, Egypt\",\r\n    // \"salary_range\": 1000,\r\n    // \"is_remote\": 0,\r\n    // \"published_at\": \"2025-04-04\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/company/job-posts/:jobPost",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"company",
+										"job-posts",
+										":jobPost"
+									],
+									"variable": [
+										{
+											"key": "jobPost",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"job updated\"\r\n    // \"description\": \"job descriptions\",\r\n    // \"location\": \"Cairo, Egypt\",\r\n    // \"salary_range\": 1000,\r\n    // \"is_remote\": 0,\r\n    // \"published_at\": \"2025-04-04\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/company/job-posts/:jobPost",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"company",
+												"job-posts",
+												":jobPost"
+											],
+											"variable": [
+												{
+													"key": "jobPost",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 05:18:23 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"title\": \"job updated\",\n    \"description\": \"job descriptions\",\n    \"location\": \"Cairo, Egypt\",\n    \"salary_range\": 1000,\n    \"is_remote\": 0,\n    \"published_at\": \"2025-04-04 00:00:00\",\n    \"published_by\": 1,\n    \"created_at\": \"2025-04-21T05:10:41.000000Z\",\n    \"updated_at\": \"2025-04-21T05:18:23.000000Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List Job Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/company/job-posts?search=job&location=cairo&is_remote=0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"company",
+										"job-posts"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "job"
+										},
+										{
+											"key": "location",
+											"value": "cairo"
+										},
+										{
+											"key": "is_remote",
+											"value": "0"
+										},
+										{
+											"key": "with_trashed",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/company/job-posts?search=job&location=cairo&is_remote=0",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"company",
+												"job-posts"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "job"
+												},
+												{
+													"key": "location",
+													"value": "cairo"
+												},
+												{
+													"key": "is_remote",
+													"value": "0"
+												},
+												{
+													"key": "with_trashed",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 05:23:00 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"job updated\",\n            \"description\": \"job descriptions\",\n            \"location\": \"Cairo, Egypt\",\n            \"salary_range\": 1000,\n            \"is_remote\": 0,\n            \"published_at\": \"2025-04-04 00:00:00\",\n            \"published_by\": 1,\n            \"created_at\": \"2025-04-21T05:10:41.000000Z\",\n            \"updated_at\": \"2025-04-21T05:18:23.000000Z\"\n        }\n    ],\n    \"first_page_url\": \"http://127.0.0.1:8000/api/company/job-posts?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"http://127.0.0.1:8000/api/company/job-posts?page=1\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/company/job-posts?page=1\",\n            \"label\": \"1\",\n            \"active\": true\n        },\n        {\n            \"url\": null,\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": null,\n    \"path\": \"http://127.0.0.1:8000/api/company/job-posts\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 1,\n    \"total\": 1\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Job Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/company/job-posts/:jobPost",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"company",
+										"job-posts",
+										":jobPost"
+									],
+									"variable": [
+										{
+											"key": "jobPost",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/company/job-posts/:jobPost",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"company",
+												"job-posts",
+												":jobPost"
+											],
+											"variable": [
+												{
+													"key": "jobPost",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 05:24:38 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Job post deleted successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Restore Deleted Job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/company/job-posts/:id/restore",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"company",
+										"job-posts",
+										":id",
+										"restore"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/company/job-posts/:id/restore",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"company",
+												"job-posts",
+												":id",
+												"restore"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 05:39:13 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Job post restored successfully\",\n    \"job\": {\n        \"id\": 1,\n        \"title\": \"job 1\",\n        \"description\": \"job descriptions\",\n        \"location\": \"Cairo, Egypt\",\n        \"salary_range\": 1000,\n        \"is_remote\": 0,\n        \"published_at\": \"2025-04-04 00:00:00\",\n        \"published_by\": 1,\n        \"created_at\": \"2025-04-21T05:37:13.000000Z\",\n        \"updated_at\": \"2025-04-21T05:39:13.000000Z\",\n        \"deleted_at\": null\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"client_id\": \"1\",\r\n    \"client_secret\": \"RZFNoUiRco7dhveChnblOVAJMbZqftziffC57Zj4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/company/login"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"client_id\": \"2\",\r\n    \"client_secret\": \"mZ1Tx4qyNUszkYDHqYeKHs4CUUmx9YzSUWkmLFQ8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/company/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 04:51:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWU1MGFmYzA2OWExOWQ2MGZiMGViNDQ5ZDE3YjczN2EzZDYyZTUxMWY3YThmOWJkNWNkYTM3MGEwMDM0NDY5NTg3ZDUzYjg4ZmM5ZDdlZTUiLCJpYXQiOjE3NDUyMTEwNzkuMDY1MTE0LCJuYmYiOjE3NDUyMTEwNzkuMDY1MTE5LCJleHAiOjE3NzY3NDcwNzkuMDUyNDI4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.OafOkbD1FwN8gGBkzHq7dZJtYvvvhG5ukXXQeFJxcu1noI_uuxCe1WciTWxRSQTDWJnkCet-O2dTnPa5Hv8M0U8dK1ACzdafxn00DL8QBPxtXwAWshEj2mUd3-X-KvJ9Cn7D6-MNBVBbZVv7-LNzhKZiqQYE-r3FSQ-UTG7B5Y-Ag_2m7Y8SPzsGGUxAu2aomhVkLtjR4uTdFzdwAmTNe8ZamwQmkl9OhZC0mxQyOIYFzoeUYp2oado4vguPzDCUvO8cpNNTksr2VPiw_ZSZcs_TEECKuEcl7mdA006OTyu5Dg9Rkc07Qi-ofMP_nXG_aP69o-RBj_CBUxBPmgDdYutl-l2v3Dl98rPOFqlvpU0K12d02oG9CPPGTADzbe4Pq7FRRx-_9PdALKuNEQtBOjB17Etni9X-I9o804De3yc2q8C_w6hlPjBpArKlvNDlqIMK8uRRvxEOVRu59p8ZdDzdXj_SVZtHEUS9aV7kUSn5EfSNTzUyvaFgvRG_os1qOySXQ1Bmj76N8-kb0orn4FfAy5Jt6anRYqwQeOiXlTuiIjXQdyOiKRhSFcHvHQ1NfiQJEV-nuJ3lMRMT9KqSXGUjaZC1CxNDU6Z4gZRWzeawBS8NssVazCeTFXGskAuAMXT0-JSJ8asxp7XrxsepjFkpr6u92hUHWnJF83MHpos\",\n    \"company\": {\n        \"id\": 1,\n        \"name\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"password\": \"$2y$12$heYLI.pAmPNJSsCcWpbCK.JmZ0G5QBYDnr8/oacfdhFHVzm4Qgn/2\",\n        \"created_at\": \"2025-04-21T04:45:03.000000Z\",\n        \"updated_at\": \"2025-04-21T04:45:03.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/company/register"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/company/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 04:21:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Company registered successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{url}}/company/logout"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/company/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 04:53:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logged out successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Candidate",
+			"item": [
+				{
+					"name": "Job Application",
+					"item": [
+						{
+							"name": "Job Apply",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cover_letter",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "resume",
+											"type": "file",
+											"src": "postman-cloud:///1f01e742-0db7-4be0-993d-220117b7547c"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/candidate/jobs/:id/apply",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"candidate",
+										"jobs",
+										":id",
+										"apply"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "cover_letter",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "resume",
+													"type": "file",
+													"src": "postman-cloud:///1f01e742-0db7-4be0-993d-220117b7547c"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/candidate/jobs/:id/apply",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"candidate",
+												"jobs",
+												":id",
+												"apply"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.20"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 21 Apr 2025 06:01:09 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Application submitted and will be processed shortly.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login Candidate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"client_id\": \"3\",\r\n    \"client_secret\": \"RvT3lrfotw8LVB7yhS4nYRK8lZ5LeF41pUmYfH3K\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/candidate/login"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"client_id\": \"2\",\r\n    \"client_secret\": \"mZ1Tx4qyNUszkYDHqYeKHs4CUUmx9YzSUWkmLFQ8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/candidate/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 05:01:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"candidate\": {\n        \"id\": 1,\n        \"first_name\": \"test\",\n        \"last_name\": \"test\",\n        \"email\": \"test@gmail.com\",\n        \"password\": \"$2y$12$OePWa67HJtPHv.glVDc8.O2bFfYTevXTIQcLPxPNqtxU4Nscphpya\",\n        \"created_at\": \"2025-04-21T05:00:00.000000Z\",\n        \"updated_at\": \"2025-04-21T05:00:00.000000Z\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWM4YjlhYjNkNTU1NmU4ZGE0MjkyZDBlNzgxZGMxNmE5YmUyZWNkNGFkMjc0MjA0ZDIwYzg4ZTNiMWNhNDc2ODhkZjhmZDE0MGY3YWE1MWQiLCJpYXQiOjE3NDUyMTE2NjkuNDk5NTE2LCJuYmYiOjE3NDUyMTE2NjkuNDk5NTIsImV4cCI6MTc3Njc0NzY2OS40ODE1MzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.T0mhP-iCfIUSs0PUnWnZ-sGjrRgn-svc8fFtLigVzzLnYS7aL5pkFmHqako29gvaZsYrnBwMEImvijBW7g7Wjc4hbyOTOI_2Platc0SQQdEZOfWNYzxT7JyID5-3U4ErcJ7zXBi7YixpKHJJU547ViIoETrE3J39DPVL51bM4RNF8jl8MHOVVkks5boSNyr4hkHwvELCg8WS3GjhrvAlTqVMgVPJmbrlJXfd3NEN53qhPv6xHNvbeUTb1cJ72_QJGpLjP7EdP97CmOVaaYmoKHU2T_gqZgHIKimTWZmKtM6ydbmE1IAtlWyI3hyQBoK8wUZ-Lqifut9bjHxRqJxMMtKTZn883oFhZ6KIDXZlJ57DVz39xnJBtKY5hHHhj0Sen0AHu35Y0yp3GtpgOPqj1KhETX17tFgFtBmFxu6eiZRHTuXruzjd-k4oOurtDwZZSvaouHCSiIGDwFzgq6tRf-AMdgqxfTbp0pUZUoznQIdDw0lsHNwBZsaWY7Kd3E_FffEkrC5zNoOY-ilaSKHyCfZkUcXYTNH_FoFZpV6H2NFijHBTIP4tKeAnVTuoUjNyMTyVgZDp-4A8cq0MEkA07t7srar9wv13bQAyPXgTHdIKP95kNfHyihzF0TdOoSXIs8bU2UIiZLgsPuhf3tb8x1SwMfHScouFg5hgsEBH9cc\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout Candidate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/candidate/logout"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/candidate/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 05:02:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logged out successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register Candidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"test\",\r\n    \"last_name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/candidate/register"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"test\",\r\n    \"last_name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/candidate/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.20"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Apr 2025 05:00:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Candidate registered successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
