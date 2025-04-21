@@ -25,7 +25,7 @@ class UpdateJobPostRequest extends FormRequest
             'title' => 'sometimes|string|max:255',
             'description' => 'sometimes|string',
             'location' => 'sometimes|string|max:255',
-            'salary' => 'sometimes|numeric|min:0',
+            'salary_range' => 'sometimes|numeric|min:0',
             'is_remote' => 'sometimes|boolean',
             'published_at' => 'sometimes|date',
         ];

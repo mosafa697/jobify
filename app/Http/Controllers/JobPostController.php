@@ -18,7 +18,8 @@ class JobPostController extends Controller
         // used when for simplification but there is more elegant way to do this
         // to avoid using multiple where clauses
         // for example, you can use a spatial query builder 
-        $jobPosts = JobPost::where('published_by', auth()->company()->id)
+
+        $jobPosts = JobPost::where('published_by', $request->user('company')->id)
             ->when($request->input('search'), function ($query) use ($request) {
                 $query->where('title', 'like', '%' . $request->input('search') . '%')
                     ->orWhere('description', 'like', '%' . $request->input('search') . '%');
@@ -34,7 +35,7 @@ class JobPostController extends Controller
             $jobPosts = $jobPosts->withTrashed();
         }
 
-        return response()->json($jobPosts->paginated($request->input('per_page', 10)), 200);
+        return response()->json($jobPosts->paginate($request->input('per_page', 10)), 200);
     }
 
     /**
@@ -44,37 +45,27 @@ class JobPostController extends Controller
     {
         $validated = $request->validated();
 
-        $jobPost = JobPost::create([...$validated, 'published_by' => auth()->company()->id]);
+        $jobPost = JobPost::create([...$validated, 'published_by' => $request->user('company')->id]);
 
         return response()->json($jobPost, 201);
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(JobPost $job)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJobPostRequest $request, JobPost $job)
+    public function update(UpdateJobPostRequest $request, JobPost $jobPost)
     {
-        $validated = $request->validated();
+        $jobPost->update($request->validated());
 
-        $job->update($validated);
-
-        return response()->json($job, 200);
+        return response()->json($jobPost, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JobPost $job)
+    public function destroy(JobPost $jobPost)
     {
-        $job->delete();
+        $jobPost->delete();
 
         return response()->json(['message' => 'Job post deleted successfully'], 200);
     }
@@ -82,9 +73,9 @@ class JobPostController extends Controller
     /**
      * Restore a soft-deleted job post.
      */
-    public function restore($id)
+    public function restore(int $id)
     {
-        $job = JobPost::onlyTrashed()->where('id', $id)->where('published_by', auth()->company()->id)->first();
+        $job = JobPost::onlyTrashed()->where('id', $id)->where('published_by', request()->user('company')->id)->first();
 
         if (!$job) {
             return response()->json(['message' => 'Job post not found or unauthorized'], 404);

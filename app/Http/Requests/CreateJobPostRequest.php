@@ -25,7 +25,7 @@ class CreateJobPostRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'location' => 'required|string|max:255',
-            'salary' => 'required|numeric|min:0',
+            'salary_range' => 'required|numeric|min:0',
             'is_remote' => 'required|boolean',
             'published_at' => 'required|date',
         ];
