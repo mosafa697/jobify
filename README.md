@@ -54,7 +54,7 @@ Before running the application, ensure you have the following installed:
     php artisan passport:install
     ```
 
-## Running the Application
+6. Running the Application
 
     ```pash
     php artisan serve
